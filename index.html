@@ -67,43 +67,49 @@
     </div>
 
     <script>
-        const emailField = document.getElementById("emailField");
-        const submitButton = document.getElementById("submitButton");
-        const clickMessage = document.getElementById("clickMessage");
-        const studentCount = document.getElementById("studentCount");
-        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const emailField = document.getElementById("emailField");
+    const submitButton = document.getElementById("submitButton");
+    const clickMessage = document.getElementById("clickMessage");
+    const studentCount = document.getElementById("studentCount");
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-        let count = 1;
+    let count = 1;
 
-        function handleEmailSubmit() {
-            if (emailPattern.test(emailField.value)) {
-                clickMessage.textContent = "You have successfully been added to the Waitlist!";
-                
-                // Increment the student count
-                count++;
-                studentCount.textContent = count;
-                
-                // Trigger confetti using Party.js
-                party.confetti(submitButton);
-            } else {
-                clickMessage.textContent = "Please enter a valid E-mail!";
-            }
-
-            clickMessage.style.visibility = 'visible'; 
-            setTimeout(function() {
-                clickMessage.style.visibility = 'hidden';
-            }, 3000); 
+    function handleEmailSubmit() {
+        if (emailPattern.test(emailField.value)) {
+            clickMessage.textContent = "You have successfully been added to the Waitlist!";
+            
+            // Increment the student count
+            count++;
+            studentCount.textContent = count;
+            
+            // Trigger confetti falling from the top of the screen
+            party.confetti(document.body, {
+                count: 200,
+                origin: { y: 0 }, // Confetti starts from the top of the screen
+                gravity: 0.8,     // Slightly increase gravity for a vertical fall
+                angle: 90,        // Confetti falls straight down
+                spread: 100,      // Spread across the screen width
+            });
+        } else {
+            clickMessage.textContent = "Please enter a valid E-mail!";
         }
 
-        // Event listener for the button click
-        submitButton.addEventListener("click", handleEmailSubmit);
+        clickMessage.style.visibility = 'visible'; 
+        setTimeout(function() {
+            clickMessage.style.visibility = 'hidden';
+        }, 3000); 
+    }
 
-        // Event listener for pressing Enter in the input field
-        emailField.addEventListener("keydown", function(event) {
-            if (event.key === "Enter") {
-                handleEmailSubmit();
-            }
-        });
+    // Event listener for the button click
+    submitButton.addEventListener("click", handleEmailSubmit);
+
+    // Event listener for pressing Enter in the input field
+    emailField.addEventListener("keydown", function(event) {
+        if (event.key === "Enter") {
+            handleEmailSubmit();
+        }
+    });
     </script>
 </body>
 </html>
