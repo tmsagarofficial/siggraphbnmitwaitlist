@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Siggraph BNMIT Waitlist</title>
     <link rel="icon" type="image/png" href="siggraphlogofav.png">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
@@ -11,144 +11,34 @@
     <script src="https://cdn.jsdelivr.net/npm/party-js@latest/bundle/party.min.js"></script>
 
     <style>
-        html, body {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            overflow: hidden; /* Prevent scrolling */
-            max-width: 2883px; 
-            min-width: 390px; 
-            max-height: 1557px; 
-            min-height: 844px;
-            touch-action: none; /* Prevent zooming and gestures on touch devices */
-        }
-        
-        body {
-            font-family: 'Montserrat', sans-serif;
-            background: url('siggraphteam.svg') no-repeat center center; /* Center background */
-            background-size: cover; /* Make sure the background covers the entire screen */
-            height: 100vh;
-            display: flex;
-            justify-content: flex-start;
-            align-items: flex-start;
-            position: relative;
-        }
+        html, body { margin: 0; padding: 0; height: 100%; overflow: hidden; max-width: 2883px; min-width: 390px; max-height: 1557px; min-height: 844px; }
+        body { font-family: 'Montserrat', sans-serif; background: url('siggraphteam.svg') no-repeat center bottom; background-size: cover; height: 100vh; display: flex; justify-content: flex-start; align-items: flex-start; position: relative; }
+        .container { width: 100%; padding: 20px; display: flex; flex-direction: column; align-items: center; gap: 12px; text-align: center; position: relative; z-index: 1; }
+        .logo-container { display: flex; justify-content: center; align-items: center; width: 80%; margin-bottom: 5px; }
+        .logo-container img { width: 250px; height: auto; }
+        .content { display: flex; flex-direction: column; align-items: center; gap: 3px; }
+        .content span { font-family: 'Bebas Neue', sans-serif; font-size: 68px; }
+        .description { color: rgba(255, 255, 255, 0.80); font-size: 22px; font-family: 'Montserrat', sans-serif; font-weight: 500; padding-bottom: 20px; }
+        .input-container { display: flex; justify-content:space-between; align-items: center; padding: 10px; background: white; border-radius: 12px; width: 100%; max-width: 500px; }
+        .input-field { width: 60%; padding: 10px; font-size: 18px; font-family: 'Montserrat', sans-serif; border: none; outline: none; color: #96949F; }
+        .button { background: #FFAD0F; border-radius: 10px; color: white; font-size: 18px; font-family: 'Montserrat', sans-serif; font-weight: 700; text-align: center; padding: 15px; cursor: pointer; border: none; }
+        .join-stats { display: flex; flex-direction: column; align-items: center; gap: 12px; text-align: center; }
+        .join-stats .number { color: white; font-size: 104px; font-family: 'Montserrat', sans-serif; font-weight: 800; line-height: 70px; padding-bottom: 10px; }
+        .join-stats .students { color: white; font-size: 20px; font-family: 'Montserrat', sans-serif; font-weight: 600; max-width: 250px; }
+        #clickMessage { color: #FFAD0F; font-size: 18px; font-family: 'Montserrat', sans-serif; font-weight: 500; text-align: center; margin-top: 10px; margin-bottom: 10px; visibility: hidden; font-style: oblique; font-weight: 400; }
 
-        .container {
-            width: 100%;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 12px;
-            text-align: center;
-            position: relative;
-            z-index: 1;
-        }
-
-        .logo-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 80%;
-            margin-bottom: 5px;
-        }
-
-        .logo-container img {
-            width: 250px;
-            height: auto;
-        }
-
-        .content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 3px;
-        }
-
-        .content span {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 68px;
-        }
-
-        .description {
-            color: rgba(255, 255, 255, 0.80);
-            font-size: 22px;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 500;
-            padding-bottom: 20px;
-        }
-
-        .input-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px;
-            background: white;
-            border-radius: 12px;
-            width: 100%;
-            max-width: 500px;
-        }
-
-        .input-field {
-            width: 60%;
-            padding: 10px;
-            font-size: 18px;
-            font-family: 'Montserrat', sans-serif;
-            border: none;
-            outline: none;
-            color: #96949F;
-        }
-
-        .button {
-            background: #FFAD0F;
-            border-radius: 10px;
-            color: white;
-            font-size: 18px;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            text-align: center;
-            padding: 15px;
-            cursor: pointer;
-            border: none;
-        }
-
-        .join-stats {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 12px;
-            text-align: center;
-        }
-
-        .join-stats .number {
-            color: white;
-            font-size: 104px;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 800;
-            line-height: 70px;
-            padding-bottom: 10px;
-        }
-
-        .join-stats .students {
-            color: white;
-            font-size: 20px;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 600;
-            max-width: 250px;
-        }
-
-        #clickMessage {
-            color: #FFAD0F;
-            font-size: 18px;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 500;
-            text-align: center;
-            margin-top: 10px;
-            margin-bottom: 10px;
-            visibility: hidden;
-            font-style: oblique;
-            font-weight: 400;
+        /* Media queries for mobile responsiveness */
+        @media (max-width: 430px) {
+            .container { padding: 10px; gap: 8px; }
+            .logo-container img { width: 180px; }
+            .content span { font-size: 38px; }
+            .description { font-size: 16px; padding-bottom: 12px; }
+            .input-container { padding: 8px; max-width: 350px; }
+            .input-field { width: 60%; padding: 6px; font-size: 14px; }
+            .button { font-size: 14px; padding: 10px; }
+            .join-stats .number { font-size: 64px; line-height: 50px; }
+            .join-stats .students { font-size: 14px; }
+            #clickMessage { font-size: 14px; margin-top: 6px; margin-bottom: 6px; }
         }
     </style>
 </head>
@@ -182,9 +72,9 @@
         const clickMessage = document.getElementById("clickMessage");
         const studentCount = document.getElementById("studentCount");
         const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
+    
         let count = 1;
-
+    
         function handleEmailSubmit() {
             if (emailPattern.test(emailField.value)) {
                 clickMessage.textContent = "You have successfully been added to the Waitlist!";
@@ -204,22 +94,22 @@
             } else {
                 clickMessage.textContent = "Please enter a valid E-mail!";
             }
-
+    
             clickMessage.style.visibility = 'visible'; 
             setTimeout(function() {
                 clickMessage.style.visibility = 'hidden';
             }, 3000); 
         }
-
+    
         // Event listener for the button click
         submitButton.addEventListener("click", handleEmailSubmit);
-
+    
         // Event listener for pressing Enter in the input field
         emailField.addEventListener("keydown", function(event) {
             if (event.key === "Enter") {
                 handleEmailSubmit();
             }
         });
-    </script>
+    </script>    
 </body>
 </html>
