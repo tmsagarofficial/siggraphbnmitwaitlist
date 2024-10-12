@@ -7,8 +7,7 @@
     <link rel="icon" type="image/png" href="siggraphlogofav.png">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
     
-    <!-- Add Party.js library -->
-    <script src="https://cdn.jsdelivr.net/npm/party-js@latest/bundle/party.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
 
     <style>
         html, body { margin: 0; padding: 0; height: 100%; overflow: hidden; max-width: 2883px; min-width: 390px; max-height: 1557px; min-height: 844px; }
@@ -28,7 +27,7 @@
         #clickMessage { color: #FFAD0F; font-size: 18px; font-family: 'Montserrat', sans-serif; font-weight: 500; text-align: center; margin-top: 10px; margin-bottom: 10px; visibility: hidden; font-style: oblique; font-weight: 400; }
 
         /* Media queries for mobile responsiveness */
-        @media (max-width: 430px) {
+        @media (max-width: 790px) {
             .container { padding: 10px; gap: 8px; }
             .logo-container img { width: 180px; }
             .content span { font-size: 38px; }
@@ -84,13 +83,17 @@
                 studentCount.textContent = count;
                 
                 // Trigger confetti falling from the top of the screen
-                party.confetti(document.body, {
-                    count: 200,
-                    origin: { y: 0 }, // Confetti starts from the top of the screen
-                    gravity: 0.8,     // Slightly increase gravity for a vertical fall
-                    angle: 90,        // Confetti falls straight down
-                    spread: 100,      // Spread across the screen width
+                confetti({
+                    particleCount: 800,
+                    spread: 800,
+                    startVelocity: 10,
+                    decay: 1,
+                    gravity: 0.2,
+                    origin: { y: -0.5 },
+                    ticks: 600
                 });
+
+                
             } else {
                 clickMessage.textContent = "Please enter a valid E-mail!";
             }
@@ -98,7 +101,7 @@
             clickMessage.style.visibility = 'visible'; 
             setTimeout(function() {
                 clickMessage.style.visibility = 'hidden';
-            }, 3000); 
+            }, 5000); 
         }
     
         // Event listener for the button click
