@@ -6,45 +6,41 @@
     <title>Siggraph BNMIT Waitlist</title>
     <link rel="icon" type="image/png" href="siggraphlogofav.png">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
-    
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
-
     <style>
-        html, body { margin: 0; padding: 0; height: 100%; overflow: hidden; max-width: 2883px; min-width: 390px; }
-        body { font-family: 'Montserrat', sans-serif; background: url('siggraphteam.svg') no-repeat center bottom; background-size: cover; height: 100vh; display: flex; justify-content: flex-start; align-items: flex-start; position: relative; }
-        .container { width: 100%; padding: 20px; display: flex; flex-direction: column; align-items: center; gap: 12px; text-align: center; position: relative; z-index: 1; }
-        .logo-container { display: flex; justify-content: center; align-items: center; width: 80%; }
-        .logo-container img { width: 250px; height: auto; }
-        .content { display: flex; flex-direction: column; align-items: center; gap: 3px; }
-        .content span { font-family: 'Bebas Neue', sans-serif; font-size: 68px; }
-        .description { color: rgba(255, 255, 255, 0.80); font-size: 22px; font-family: 'Montserrat', sans-serif; font-weight: 600; padding-bottom: 20px; }
-        .input-container { display: flex; justify-content:space-between; align-items: center; padding: 10px; background: white; border-radius: 12px; width: 100%; max-width: 500px; }
-        .input-field { width: 60%; padding: 10px; font-size: 18px; font-family: 'Montserrat', sans-serif; border: none; outline: none; color: #96949F; }
-        .button { background: #FFAD0F; border-radius: 10px; color: white; font-size: 18px; font-family: 'Montserrat', sans-serif; font-weight: 700; text-align: center; padding: 15px; cursor: pointer; border: none; }
-        .join-stats { display: flex; flex-direction: column; align-items: center; gap: 12px; text-align: center; }
-        .join-stats .number { color: white; font-size: 104px; font-family: 'Montserrat', sans-serif; font-weight: 800; line-height: 70px; padding-bottom: 10px; }
-        .join-stats .students { color: white; font-size: 20px; font-family: 'Montserrat', sans-serif; font-weight: 600; max-width: 250px; }
-        #clickMessage { color: #FFAD0F; font-size: 18px; font-family: 'Montserrat', sans-serif; font-weight: 500; text-align: center; margin-top: 10px; margin-bottom: 10px; visibility: hidden; font-style: oblique; font-weight: 400; }
-
-        /* Media queries for mobile responsiveness */
-        @media (max-width: 1024px) {
-            .container { padding: 10px; gap: 28px; }
-            .logo-container img { width: 200px; }
-            .content span { font-size: 48px; line-height: 100%; }
-            .description { font-size: 16px; padding-bottom: 12px; padding-top: 12px; }
-            .input-container { padding: 8px; max-width: 350px; }
-            .input-field { width: 60%; padding: 6px; font-size: 14px; }
-            .button { font-size: 14px; padding: 10px; }
-            .join-stats .number { font-size: 64px; line-height: 50px; }
-            .join-stats .students { font-size: 14px; max-width: 180px;}
-            #clickMessage { font-size: 14px; margin-top: 6px; margin-bottom: 6px; }
+        html, body { margin: 0; padding: 0; height: 100%; overflow: hidden; max-width: 2883px; min-width: 390px; } 
+        body { font-family: 'Montserrat', sans-serif; background: url('siggraphteam.svg') no-repeat center bottom; background-size: cover; height: 100vh; display: flex; justify-content: flex-start; align-items: flex-start; position: relative; } 
+        .container { width: 100%; padding: 20px; display: flex; flex-direction: column; align-items: center; gap: 12px; text-align: center; position: relative; z-index: 1; } 
+        .logo-container { display: flex; justify-content: center; align-items: center; width: 80%; } 
+        .logo-container img { width: 250px; height: auto; } 
+        .content { display: flex; flex-direction: column; align-items: center; gap: 3px; } 
+        .content span { font-family: 'Bebas Neue', sans-serif; font-size: 68px; } 
+        .description { color: rgba(255, 255, 255, 0.80); font-size: 22px; font-family: 'Montserrat', sans-serif; font-weight: 600; padding-bottom: 20px; } 
+        .input-container { display: flex; justify-content: space-between; align-items: center; padding: 10px; background: white; border-radius: 12px; width: 100%; max-width: 500px; } 
+        .input-field { width: 60%; padding: 10px; font-size: 18px; font-family: 'Montserrat', sans-serif; border: none; outline: none; color: #96949F; } 
+        .button { background: #FFAD0F; border-radius: 10px; color: white; font-size: 18px; font-family: 'Montserrat', sans-serif; font-weight: 700; text-align: center; padding: 15px; cursor: pointer; border: none; } 
+        .join-stats { display: flex; flex-direction: column; align-items: center; gap: 12px; text-align: center; } 
+        .join-stats .number { color: white; font-size: 104px; font-family: 'Montserrat', sans-serif; font-weight: 800; line-height: 70px; padding-bottom: 10px; } 
+        .join-stats .students { color: white; font-size: 20px; font-family: 'Montserrat', sans-serif; font-weight: 600; max-width: 250px; } 
+        #clickMessage { color: #FFAD0F; font-size: 18px; font-family: 'Montserrat', sans-serif; font-weight: 500; text-align: center; margin-top: 10px; margin-bottom: 10px; visibility: hidden; font-style: oblique; font-weight: 400; } 
+        @media (max-width: 1024px) { 
+            .container { padding: 8px; } 
+            .logo-container img { width: 120px; } 
+            .content span { font-size: 48px; line-height: 100%; } 
+            .description { font-size: 16px; padding-bottom: 8px; padding-top: 2px; } 
+            .input-container { padding: 8px; max-width: 340px; } 
+            .input-field { width: 60%; padding: 6px; font-size: 14px; } 
+            .button { font-size: 14px; padding: 10px; } 
+            .join-stats .number { font-size: 64px; line-height: 50px; } 
+            .join-stats .students { font-size: 14px; max-width: 180px; } 
+            #clickMessage { font-size: 14px; margin-top: 6px; margin-bottom: 6px; } 
         }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="logo-container">
-            <img src="siggraphlogo.png" alt="Siggraph Logo">
+            <img src="siggraphbnmitlogo.png" alt="Siggraph Logo">
         </div>
         <div class="content">
             <div>
@@ -71,18 +67,12 @@
         const clickMessage = document.getElementById("clickMessage");
         const studentCount = document.getElementById("studentCount");
         const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    
         let count = 1;
-    
         function handleEmailSubmit() {
             if (emailPattern.test(emailField.value)) {
                 clickMessage.textContent = "You have successfully been added to the Waitlist!";
-                
-                // Increment the student count
                 count++;
                 studentCount.textContent = count;
-                
-                // Trigger confetti falling from the top of the screen
                 confetti({
                     particleCount: 800,
                     spread: 800,
@@ -92,22 +82,15 @@
                     origin: { y: -0.5 },
                     ticks: 600
                 });
-
-                
             } else {
                 clickMessage.textContent = "Please enter a valid E-mail!";
             }
-    
             clickMessage.style.visibility = 'visible'; 
             setTimeout(function() {
                 clickMessage.style.visibility = 'hidden';
-            }, 5000); 
+            }, 5000);
         }
-    
-        // Event listener for the button click
         submitButton.addEventListener("click", handleEmailSubmit);
-    
-        // Event listener for pressing Enter in the input field
         emailField.addEventListener("keydown", function(event) {
             if (event.key === "Enter") {
                 handleEmailSubmit();
