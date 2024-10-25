@@ -8,34 +8,33 @@
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
     <style>
-        html, body { margin: 0; padding: 0; height: 100%; overflow: hidden; max-width: 2883px; min-width: 390px; } 
-        body { font-family: 'Montserrat', sans-serif; background: url('siggraphteam.svg') no-repeat center bottom; background-size: cover; height: 100vh; display: flex; justify-content: flex-start; align-items: flex-start; position: relative; } 
-        .container { width: 100%; padding: 20px; display: flex; flex-direction: column; align-items: center; gap: 12px; text-align: center; position: relative; z-index: 1; } 
-        .logo-container { display: flex; justify-content: center; align-items: center; width: 80%; } 
-        .logo-container img { width: 250px; height: auto; } 
-        .content { display: flex; flex-direction: column; align-items: center; gap: 3px; } 
-        .content span { font-family: 'Bebas Neue', sans-serif; font-size: 68px; } 
-        .description { color: rgba(255, 255, 255, 0.80); font-size: 22px; font-family: 'Montserrat', sans-serif; font-weight: 600; padding-bottom: 20px; } 
-        .input-container { display: flex; justify-content: space-between; align-items: center; padding: 10px; background: white; border-radius: 12px; width: 100%; max-width: 500px; } 
-        .input-field { width: 60%; padding: 10px; font-size: 18px; font-family: 'Montserrat', sans-serif; border: none; outline: none; color: #96949F; } 
-        .button { background: #FFAD0F; border-radius: 10px; color: white; font-size: 18px; font-family: 'Montserrat', sans-serif; font-weight: 700; text-align: center; padding: 15px; cursor: pointer; border: none; } 
-        .join-stats { display: flex; flex-direction: column; align-items: center; gap: 12px; text-align: center; } 
-        .join-stats .number { color: white; font-size: 104px; font-family: 'Montserrat', sans-serif; font-weight: 800; line-height: 70px; padding-bottom: 10px; } 
-        .join-stats .students { color: white; font-size: 20px; font-family: 'Montserrat', sans-serif; font-weight: 600; max-width: 250px; } 
-        #clickMessage { color: #FFAD0F; font-size: 18px; font-family: 'Montserrat', sans-serif; font-weight: 500; text-align: center; margin-top: 10px; margin-bottom: 10px; visibility: hidden; font-style: oblique; font-weight: 400; } 
-        @media (max-width: 1024px) { 
-            .container { padding: 8px; } 
-            .logo-container img { width: 120px; } 
-            .content span { font-size: 48px; line-height: 100%; } 
-            .description { font-size: 16px; padding-bottom: 8px; padding-top: 2px; } 
-            .input-container { padding: 8px; max-width: 340px; } 
-            .input-field { width: 60%; padding: 6px; font-size: 14px; } 
-            .button { font-size: 14px; padding: 10px; } 
-            .join-stats .number { font-size: 64px; line-height: 50px; } 
-            .join-stats .students { font-size: 14px; max-width: 180px; } 
-            #clickMessage { font-size: 14px; margin-top: 6px; margin-bottom: 6px; } 
+        html, body { margin: 0; padding: 0; height: 100%; overflow: hidden; max-width: 2883px; min-width: 390px; }
+        body { font-family: 'Montserrat', sans-serif; background: url('siggraphteam.svg') no-repeat center bottom; background-size: cover; height: 100vh; display: flex; justify-content: flex-start; align-items: flex-start; position: relative; }
+        .container { width: 100%; padding: 28px; display: flex; flex-direction: column; align-items: center; gap: 12px; text-align: center; position: relative; z-index: 1; }
+        .logo-container { display: flex; justify-content: center; align-items: center; width: 80%; }
+        .logo-container img { width: 180px; height: auto; }
+        .content { display: flex; flex-direction: column; align-items: center; gap: 3px; }
+        .content span { font-family: 'Bebas Neue', sans-serif; font-size: 68px; }
+        .description { color: rgba(255, 255, 255, 0.80); font-size: 22px; font-family: 'Montserrat', sans-serif; font-weight: 600; padding-bottom: 20px; }
+        .input-box { background: white; padding: 20px; border-radius: 12px; display: flex; flex-direction: column; align-items: center; gap: 15px; max-width: 500px; width: 100%; box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1); }
+        .input-field { width: 100%; padding: 12px; font-size: 18px; font-family: 'Montserrat', sans-serif; border: 1px solid #DDDDDD; outline: none; color: #333; border-radius: 8px; box-sizing: border-box; }
+        .button { background: #FFAD0F; border-radius: 10px; color: white; font-size: 18px; font-family: 'Montserrat', sans-serif; font-weight: 700; padding: 15px; cursor: pointer; border: none; width: 100%; }
+        #clickMessage { color: #FFAD0F; font-size: 18px; font-family: 'Montserrat', sans-serif; font-weight: 600; text-align: center; margin-top: 10px; margin-bottom: 10px; visibility: hidden; font-style: oblique; font-weight: 600; }
+        @media (max-width: 1024px) {
+            .container { padding: 38px; gap: 18px; }
+            .logo-container img { width: 120px; }
+            .content span { font-size: 48px; line-height: 100%; }
+            .description { font-size: 16px; padding-bottom: 8px; padding-top: 2px; }
+            .input-box { padding: 10px; max-width: 340px; }
+            .input-field { padding: 10px; font-size: 14px; }
+            .button { font-size: 14px; padding: 10px; }
+            #clickMessage { font-size: 14px; margin-top: 6px; margin-bottom: 6px; font-weight: 600; }
         }
     </style>
+
+    <!-- Firebase CDN scripts for RTDB -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database-compat.js"></script>
 </head>
 <body>
     <div class="container">
@@ -50,52 +49,102 @@
             </div>
             <div class="description">Brace yourself for an extraordinary journey into the world of design.</div>
         </div>
-        <div class="input-container">
-            <input type="email" id="emailField" class="input-field" placeholder="Your Email Here">
+
+        <div class="input-box">
+            <input type="text" id="nameField" class="input-field" placeholder="Your Name" required>
+            <input type="email" id="emailField" class="input-field" placeholder="Your Email" required>
+            <input type="tel" id="phoneField" class="input-field" placeholder="Your Phone Number" required>
             <button class="button" id="submitButton">GET STARTED</button>
         </div>
+
         <div id="clickMessage">Button is clicked</div>
-        <div class="join-stats">
-            <div id="studentCount" class="number">1</div>
-            <div class="students">Students have joined! Have you?</div>
-        </div>
     </div>
 
     <script>
+        // Firebase config for RTDB
+        const firebaseConfig = {
+            apiKey: "AIzaSyBR08BDsS3ny7XQ-N1mezON22wta6QaM3k",
+            authDomain: "sigg-waitlist-2024.firebaseapp.com",
+            databaseURL: "https://sigg-waitlist-2024-default-rtdb.asia-southeast1.firebasedatabase.app/",
+            projectId: "sigg-waitlist-2024",
+            storageBucket: "sigg-waitlist-2024.appspot.com",
+            messagingSenderId: "211872816380",
+            appId: "1:211872816380:web:e626cd629430cc676a4b79"
+        };
+
+        // Initialize Firebase
+        const app = firebase.initializeApp(firebaseConfig);
+        const db = firebase.database();
+        console.log("Firebase initialized:", app);
+
+        const nameField = document.getElementById("nameField");
         const emailField = document.getElementById("emailField");
+        const phoneField = document.getElementById("phoneField");
         const submitButton = document.getElementById("submitButton");
         const clickMessage = document.getElementById("clickMessage");
-        const studentCount = document.getElementById("studentCount");
         const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        let count = 1;
-        function handleEmailSubmit() {
-            if (emailPattern.test(emailField.value)) {
-                clickMessage.textContent = "You have successfully been added to the Waitlist!";
-                count++;
-                studentCount.textContent = count;
-                confetti({
-                    particleCount: 800,
-                    spread: 800,
-                    startVelocity: 10,
-                    decay: 1,
-                    gravity: 0.2,
-                    origin: { y: -0.5 },
-                    ticks: 600
-                });
-            } else {
-                clickMessage.textContent = "Please enter a valid E-mail!";
+
+        // Function to check if email or phone already exists
+        async function checkIfExists(email, phone) {
+            try {
+                const emailSnapshot = await db.ref("waitlist").orderByChild("email").equalTo(email).get();
+                if (emailSnapshot.exists()) return true;
+
+                const phoneSnapshot = await db.ref("waitlist").orderByChild("phone").equalTo(phone).get();
+                return phoneSnapshot.exists();
+            } catch (error) {
+                console.error("Error checking existence:", error);
+                return false; // Default to false on error
             }
-            clickMessage.style.visibility = 'visible'; 
-            setTimeout(function() {
-                clickMessage.style.visibility = 'hidden';
-            }, 5000);
         }
-        submitButton.addEventListener("click", handleEmailSubmit);
-        emailField.addEventListener("keydown", function(event) {
-            if (event.key === "Enter") {
-                handleEmailSubmit();
+
+        // Function to handle form submission
+        async function handleEmailSubmit() {
+            const name = nameField.value.trim();
+            const email = emailField.value.trim();
+            const phone = phoneField.value.trim();
+
+            if (name && emailPattern.test(email) && phone) {
+                console.log("Checking if email or phone exists...");
+                const exists = await checkIfExists(email, phone);
+
+                if (exists) {
+                    clickMessage.textContent = "You have already registered with this email or phone.";
+                } else {
+                    clickMessage.textContent = "Congratulations! You have been added to the Waitlist!";
+                    
+                    // Add data to RTDB
+                    try {
+                        await db.ref("waitlist").push({ name, email, phone });
+                        console.log("Data successfully added!");
+
+                        // Clear input fields
+                        nameField.value = "";
+                        emailField.value = "";
+                        phoneField.value = "";
+
+                        // Trigger confetti
+                        confetti({
+                            particleCount: 800,
+                            spread: 800,
+                            startVelocity: 10,
+                            decay: 1,
+                            gravity: 0.2,
+                            origin: { y: -0.5 },
+                            ticks: 600
+                        });
+                    } catch (error) {
+                        console.error("Error adding data:", error);
+                    }
+                }
+                clickMessage.style.visibility = 'visible';
+            } else {
+                clickMessage.textContent = "Please enter valid details.";
+                clickMessage.style.visibility = 'visible';
             }
-        });
-    </script>    
+        }
+
+        submitButton.addEventListener("click", handleEmailSubmit);
+    </script>
 </body>
 </html>
